@@ -36,7 +36,7 @@ export default class App extends Component {
     this.setState({tasks: this.state.tasks.concat(
       {name: "",
       category:"wip",
-      bgcolor: "green"}
+      bgcolor: "yellow"}
     )});
     this.setState({count: this.state.count + 1});
   }
@@ -84,9 +84,11 @@ export default class App extends Component {
 
     return (
       <div className="container-drag">
-      <h2 className="header">Affinity Map</h2>
-      <button onClick={this.makeNewSticky} >Make a New Sticky Note</button>
-      <button onCLick={this.makeNewBucket} >Make a new bucket</button>
+      <div className="mainheader">
+        <h2 className="header">Affinity Map</h2>
+        <button className="buttons" onClick={this.makeNewSticky} >Make a New Sticky Note</button>
+        <button className="buttons" onCLick={this.makeNewBucket} >Make a new bucket</button>
+      </div>
       <div className="buckets">
         <div
         className="bucket"
