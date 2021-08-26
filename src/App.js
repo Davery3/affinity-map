@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom';
 import { nanoid } from 'nanoid'; //for stable id's for each note
 
 export default class App extends Component {
-
   state = {
     tasks: [
       {name: "hello",
+      content: '',
       category:"wip",
       bgcolor: "pink"
       }
@@ -15,7 +15,7 @@ export default class App extends Component {
     input: '',
     taskName: '',
     count: 0,
-    category: []
+    category: [],
   }
 
   onDragOver = (ev) => {
@@ -43,8 +43,8 @@ export default class App extends Component {
     var task = this.state.taskName
     this.setState({tasks: this.state.tasks.concat(
       {name: nanoid(),
-      /*id: nanoid(),
-      task: task,
+      content: '',
+      /*task: task,
       count: count,*/
       category:"wip",
       bgcolor: "yellow"}
@@ -93,6 +93,7 @@ export default class App extends Component {
         <input onChange={this.onInputChange} className="sticky" />
         <button onClick={this.onSubmit} >Enter</button>
         {this.state.taskName}
+        {this.state.content}
         <button onClick={this.deleteSticky}>Delete</button>
         </div>);
       });
