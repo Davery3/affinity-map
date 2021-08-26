@@ -1,11 +1,11 @@
 # Affinity Map Description
--This app allows the user to add a sticky note to the page, add whatever note you want to the sticky note, and then group that sticky note into whatever category you would like.
+<li>This app allows the user to add a sticky note to the page, add whatever note you want to the sticky note, and then group that sticky note into whatever category you would like.</li>
 
 # Bugs
 <li>The categories are pre-set.</li>
--Using spaces in the notes causes bugs.
--Once you create more that one stickynote the sticky notes become linked(the keys are not unique).
--The components cannot be resized.
--Tags have not been implemented.
+<li>Using spaces in the notes causes bugs.</li>
+<li>Once you create more that one stickynote the sticky notes become linked(the keys are not unique).</li>
+<li>The components cannot be resized.</li>
+<li>Tags have not been implemented.</li>
 
 # Video Walkthrough
