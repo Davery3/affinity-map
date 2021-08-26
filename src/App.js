@@ -33,8 +33,10 @@ export default class App extends Component {
   }
 
   makeNewSticky = () => {
+    var count = this.state.count;
     this.setState({tasks: this.state.tasks.concat(
       {name: "",
+      count: count,
       category:"wip",
       bgcolor: "yellow"}
     )});
@@ -47,6 +49,10 @@ export default class App extends Component {
 
   onSubmit = () => {
     this.setState({taskName: this.state.input});
+  }
+
+  deleteSticky = () => {
+    this.setState({tasks: this.state.tasks.splice()});
   }
 
   makeNewBucket =() => {
@@ -70,15 +76,15 @@ export default class App extends Component {
     this.state.tasks.map ((t, index) => {
       tasks[t.category].push(
         <div
-        key= {index}
+        key= {this.state.count}
         onDragStart={(e)=>this.onDragStart(e, t.name)}
         draggable
         className="draggable"
         style={{backgroundColor: t.bgcolor}}>
         <input onChange={this.onInputChange} className="sticky" />
         <button onClick={this.onSubmit} >Enter</button>
-        {this.state.taskName}
         {t.name}
+        <button onClick={this.deleteSticky}>Delete</button>
         </div>);
       });
 
