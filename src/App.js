@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReactDOM from 'react-dom';
+import { nanoid } from 'nanoid'; //for stable id's for each note
 
 export default class App extends Component {
 
   state = {
-    tasks: [],
+    tasks: [
+      {name: "hello",
+      category:"wip",
+      bgcolor: "pink"
+      }
+    ],
     input: '',
     taskName: '',
     count: 0,
@@ -34,9 +40,12 @@ export default class App extends Component {
 
   makeNewSticky = () => {
     var count = this.state.count;
+    var task = this.state.taskName
     this.setState({tasks: this.state.tasks.concat(
-      {name: "",
-      count: count,
+      {name: nanoid(),
+      /*id: nanoid(),
+      task: task,
+      count: count,*/
       category:"wip",
       bgcolor: "yellow"}
     )});
@@ -73,17 +82,17 @@ export default class App extends Component {
         complete: []
     }
 
-    this.state.tasks.map ((t, index) => {
+    this.state.tasks.map ((t) => {
       tasks[t.category].push(
         <div
-        key= {this.state.count}
+        key= {this.state.tasks.name}
         onDragStart={(e)=>this.onDragStart(e, t.name)}
         draggable
         className="draggable"
         style={{backgroundColor: t.bgcolor}}>
         <input onChange={this.onInputChange} className="sticky" />
         <button onClick={this.onSubmit} >Enter</button>
-        {t.name}
+        {this.state.taskName}
         <button onClick={this.deleteSticky}>Delete</button>
         </div>);
       });
